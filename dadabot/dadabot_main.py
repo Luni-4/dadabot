@@ -1,12 +1,13 @@
 import os
 
 from flask import Flask, request
-from dadabot.shared_data import Constants
 
-from dadabot.logs import logger
-from dadabot.telegramapi import TelegramApi
-from dadabot.data import Database, Chat, WordMatchResponse
-from dadabot.commands import handle_command_str, notify_new_match
+from shared_data import Constants
+
+from logs import logger
+from telegramapi import TelegramApi
+from data import Database, Chat, WordMatchResponse
+from commands import handle_command_str, notify_new_match
 
 app = Flask(__name__)
 
@@ -74,12 +75,14 @@ def evaluate_update(update: TelegramApi.Update):
                 response.reply(msg, telegram)
                 response.increment_match_counter()
 
-
-# Start the web app (only if on remote server)
-if __name__ == "__main__":
+# Start the web app (only if on remote server)                
+def main():
     if 'PORT' in os.environ:
         telegram.set_webhook()
-
+        
         port = int(os.environ.get('PORT', 5000))
-        app.run(host='0.0.0.0', port=port)
+        app.run(host='0.0.0.0', port=port)   
 
+
+if __name__ == "__main__":
+    main()
