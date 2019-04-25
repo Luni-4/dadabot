@@ -1,6 +1,5 @@
 import os
 
-
 class Constants:
     if 'API_KEY' in os.environ:
         API_KEY = os.environ['API_KEY']
@@ -24,7 +23,3 @@ class Constants:
     KEY_SQL_RESULTS = 'results'
     KEY_SQL_RESULT_DATA = 'result_data'
     KEY_SQL_RESULT_AFFECTED_ROWS = 'result_affected_rows'
-
-
-
-
