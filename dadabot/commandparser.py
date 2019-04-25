@@ -1,7 +1,6 @@
 import collections
 import re
 
-
 def parse_match(lines: list):
     re_continueline = re.compile(r'/\s*$')
     re_params = re.compile(r'^\s*(\s*|-(?P<par>[a-zA-Z]+))\s*$')

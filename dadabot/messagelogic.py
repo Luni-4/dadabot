@@ -1,15 +1,14 @@
 import io
 import os.path
-
 import requests
-from dadabot.responses import WordMatchResponse, WordMatchMode, Chat
-from dadabot.shared_data import Constants
-from dadabot.telegramapi import TelegramApi
-from dadabot.data import Database, Command, Chat
 
-from dadabot.commandparser import parse_command, ParseResult, MatchData, AddData
-from dadabot.logs import logger
-from dadabot.commands import handle_command_str, is_command
+from commands import handle_command_str, is_command
+from commandparser import parse_command, ParseResult, MatchData, AddData
+from data import Database, Command, Chat
+from logs import logger
+from responses import WordMatchResponse, WordMatchMode, Chat
+from shared_data import Constants
+from telegramapi import TelegramApi
 
 chats = []  # list[Chat]
 echo_to_id = 0  # Echo messages from my chat to this chat, don't echo if 0

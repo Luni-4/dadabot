@@ -1,14 +1,14 @@
-import requests
-
-from dadabot.logs import logger
-from dadabot.shared_data import Constants
-from dadabot.telegramapi import TelegramApi
-from enum import IntEnum
 import random
 import re
+import requests
 
-dburl = 'http://dadabot.altervista.org/query.php'
+from enum import IntEnum
 
+from logs import logger
+from shared_data import Constants
+from telegramapi import TelegramApi
+
+DBURL = 'http://dadabot.altervista.org/query.php'
 
 class Database:
     _escape_chars = ['\\', '\'', '"', '%', '_']
@@ -42,7 +42,7 @@ class Database:
     @staticmethod
     def query(q: str):
         params = {Constants.KEY_SQL_PSK: Constants.API_KEY, Constants.KEY_SQL_QUERY: q}
-        r = requests.post(dburl, json=params)
+        r = requests.post(DBURL, json=params)
         try:
             js = r.json()
             if Constants.KEY_SQL_SUCCESS not in js:

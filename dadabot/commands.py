@@ -1,10 +1,11 @@
-from dadabot.commandparser import *
-from dadabot.telegramapi import TelegramApi
-from dadabot.data import Database, Command, WordMatchResponse, WordMatchMode
-from dadabot.logs import logger
-from dadabot.shared_data import Constants
-
 import re
+
+from commandparser import (parse_add, parse_id, parse_id_or_empty, 
+                           parse_match, parse_nothing, parse_str)
+from data import Database, Command, WordMatchResponse, WordMatchMode
+from logs import logger
+from shared_data import Constants
+from telegramapi import TelegramApi
 
 last_match_cmdid = {}
 

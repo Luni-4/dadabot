@@ -1,7 +1,6 @@
 import requests
 
-from dadabot.logs import logger
-
+from logs import logger
 
 class TelegramApi:
 
