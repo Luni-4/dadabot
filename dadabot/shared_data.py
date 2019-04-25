@@ -5,8 +5,8 @@ class Constants:
     if 'API_KEY' in os.environ:
         API_KEY = os.environ['API_KEY']
     else:
-        f = open('../api_key.txt')
-        API_KEY = f.readline()
+        with open('api_key.txt') as f:
+            API_KEY = f.readline().strip()
 
     if 'APP_NAME' in os.environ:
         APP_NAME = os.environ['APP_NAME']
